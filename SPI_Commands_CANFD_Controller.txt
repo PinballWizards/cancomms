@@ -1,0 +1,20 @@
+//Author:     Patrick Taliaferro
+//Date:       26 November 2019
+//Project:    CANFD Testbed
+//Purpose:    This is the SPI script to be sent to the CANFD testbed
+//Assumption: CRC reads and Writes are not needed
+
+
+//Configure the CANFD Controller
+0x2E 04 00  //Write the GPIO Pins as Outputs
+
+//Flash the CANFD I/O pins - SFR Read Instruction - Single Byte
+0x2E 05 03  // Latch both GPIO Pins as high
+0x2E 05 02  // Latch GPIO1 high; GPIO0 low
+0x2E 05 01  // Latch GPIO1 low; GPIO0 high
+0x2E 05 00  // Latch GPIO1 low; GPIO0 low
+
+//Send a message to the other CANFD Controller
+
+
+//Read a message from the other CANFD Controller
